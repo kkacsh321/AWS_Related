@@ -15,7 +15,7 @@ ls -la
 #Verify you can talk to Cloudwatch
 /opt/aws/bin/aws-scripts-mon/mon-put-instance-data.pl --mem-util --verify -verbose 
 #add line to crontab to run every 5 minutes
-line="*/5 * * * * root /opt/aws/bin/aws-scripts-mon/mon-put-instance-data.pl --mem-util --mem-used --mem-avail --disk-space-util --disk-path=/"
+line="*/5 * * * * root /opt/aws/bin/aws-scripts-mon/mon-put-instance-data.pl --mem-util --mem-used --mem-avail --disk-space-util --disk-path=/ --from-cron
 echo "$line" >> /etc/crontab
 #restart crond
 service crond restart
