@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#AWS Linux CloudWatch Memory Commands-Should Work on Amazon Linux AMI's with an associated CloudWatch IAM Role
+#AWS Linux CloudWatch Memory and Disk Commands-Should Work on Amazon Linux AMI's with an associated CloudWatch IAM Role
 
 #Pre-Reqs
 yum install perl-Switch perl-Sys-Syslog perl-LWP-Protocol-https -y
@@ -13,9 +13,9 @@ cp -R aws-scripts-mon /opt/aws/bin/
 #List out
 ls -la
 #Verify you can talk to Cloudwatch
-/opt/aws/bin/aws-scripts-mon/mon-put-instance-data.pl --mem-util --verify -verbose
+/opt/aws/bin/aws-scripts-mon/mon-put-instance-data.pl --mem-util --verify -verbose 
 #add line to crontab to run every 5 minutes
-line="*/5 * * * * root /opt/aws/bin/aws-scripts-mon/mon-put-instance-data.pl --mem-util --mem-used --mem-avail"
+line="*/5 * * * * root /opt/aws/bin/aws-scripts-mon/mon-put-instance-data.pl --mem-util --mem-used --mem-avail --disk-space-util --disk-path=/"
 echo "$line" >> /etc/crontab
 #restart crond
 service crond restart
