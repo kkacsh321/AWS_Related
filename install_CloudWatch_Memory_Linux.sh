@@ -3,8 +3,7 @@
 #AWS Linux CloudWatch Memory and Disk Commands-Should Work on Amazon Linux AMI's with an associated CloudWatch IAM Role
 
 #Pre-Reqs
-sudo yum install zip unzip -y
-sudo yum install perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA -y
+yum install perl-Switch perl-Sys-Syslog perl-LWP-Protocol-https -y
 #Download the AWS CouldWatch Samples for Linux Scripts
 wget http://ec2-downloads.s3.amazonaws.com/cloudwatch-samples/CloudWatchMonitoringScripts-v1.1.0.zip
 #Unzip
